@@ -1,0 +1,18 @@
+{% extends 'core_app/base.html' %}
+{% block content %}
+
+<h2>Lists of orders</h2>
+
+<a href="{% url 'create_order' %}">Créer une commande</a>
+
+<ul>
+{% for order in orders %}
+    <li>
+        Commande #{{ order.id }} - {{ order.client }} - {{ order.total_amount }} FCFA
+
+        <a href="{% url 'order_detail' order.id %}">view</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

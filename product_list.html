@@ -1,0 +1,20 @@
+{% extends 'core_app/base.html' %}
+
+{% block content %}
+
+<h2>List of products</h2>
+
+<a href="{% url 'product_create' %}">Add a product</a>
+
+<ul>
+{% for product in products %}
+    <li>
+        {{ product.name }} - {{ product.price }} FCFA
+
+        <a href="{% url 'product_update' product.id %}">Modify</a>
+        <a href="{% url 'product_delete' product.id %}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
